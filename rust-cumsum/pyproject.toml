@@ -1,0 +1,27 @@
+[project]
+name = "rust-cumsum"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "mog", email = "mog@noreply.git.ogion.eu" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.3.4",
+]
+
+[project.scripts]
+rust-cumsum = "rust_cumsum:main"
+
+[tool.maturin]
+module-name = "rust_cumsum._core"
+python-packages = ["rust_cumsum"]
+python-source = "src"
+
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { file = "src/**/*.rs" }, { file = "Cargo.toml" }, { file = "Cargo.lock" }]
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"

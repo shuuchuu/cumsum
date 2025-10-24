@@ -1,0 +1,13 @@
+[package]
+edition = "2021"
+name = "rust-cumsum"
+version = "0.1.0"
+
+[lib]
+name = "_core"
+# "cdylib" is necessary to produce a shared library for Python to import from.
+crate-type = ["cdylib"]
+
+[dependencies]
+numpy = "0.27.0"
+pyo3 = {version = "0.27", features = ["auto-initialize"]}
